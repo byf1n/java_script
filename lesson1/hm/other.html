@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let a = 100; let b = '100'; let c = true;
+    let aa = ( typeof 100)
+    let b = (typeof '100')
+    let c = (typeof true)
+    console.log(aa,b,c)
+
+    a1 = 5 < 6  /*true*/
+    a2 = 5 > 6  /*false*/
+    a3 = 5 >= 6  /*false*/
+    a4 = 5 === 6  /*false*/
+    console.log(a1,a2,a3,a4)
+    b1 = 10 === 10  /*true*/
+    b2 = 10 >! 10  /*true*/
+    b3 = 10 != 10  /*false*/   // не пон почему желтым светиться
+    b4 = 10 > 10  /*false*/
+    b5 = 10 < 10  /*false*/
+    console.log(b1,b2,b3,b4,b5)
+    c1 = 123 > '123'  /*false*/
+    c2 = 123 >! '123'  /*true*/
+    console.log(c1,c2)
+
+let str = "20";
+let a = 5;
+document.write(str + a + "<br/>");//как я понял если (+) и что-то является текстом то и все остальное тоже будет текстом
+document.write(str - a + "<br/>");//а если (-,*,/ )после текста то текст будет автоматом цифрой
+document.write(str * "2" + "<br/>");// а (br) это абзац
+document.write(str / 2 + "<br/>");
+
+
+
+
+</script>
+</body>
+</html>
