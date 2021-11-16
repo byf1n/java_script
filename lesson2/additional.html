@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let friends = ["Ivan", "Slavik", "Grisha", "Lera", "Ira"]
+if (friends.length>=3){
+    console.log('великий масив, в якому  3 і більше елементiв')
+}else if (friends.length<3){
+    console.log('це маленький масив, в якому менше 3-х елементів')
+}else{
+    console.log('error')
+}
+
+
+let a = 1
+let b = 2
+let c = 3
+if (a>=b && b>=c || c>=b && b>=a){
+    console.log(b)
+} else if(b>=a && a>=c || c>=a && a>=b){
+    console.log(a)
+}else{
+    console.log(c)
+}
+
+/*let a1 = 1
+let b1 =  2
+let result;
+if (a1 + b2 < 4) {
+    result = 'Мало';
+} else {
+    result = 'Багато';
+}
+console.log(result)*/
+
+let a1 = 2
+let b1 = 2
+let result = a1+b1<4
+let xxx = !!result ? console.log('Malo') : console.log('Bagato')
+
+
+/*x = 'sgdsg'
+if (x<0){
+    console.log('число є негативним')
+} else if (x>0){
+    console.log('число є позитивним')
+} else{
+    console.log(0)
+}*/
+let x = 1
+let result1 = x===0
+result2 = x>0                    /*- чото намудрил*/
+let xx = !!result1 ? console.log('ноль') : xx = !!result2 ? console.log('позитив ') : console.log('негатив')
+
+
+
+</script>
+
+
+
+</body>
+</html>
