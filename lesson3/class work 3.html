@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // зробити масив з 10 чисел [2,17,13,6,22,31,45,66,100,-18]та:
+    //     1. перебрати його циклом while
+    let numbers_massive = [2,17,13,6,22,31,45,66,100,-18];
+    let i = 0;
+    while(i<numbers_massive.length){
+        console.log(`Циклом while: ${numbers_massive[i]}`)
+        i++
+    }
+    //     2. перебрати його циклом for
+    for(i=0;i<numbers_massive.length;i++){
+        console.log(`  циклом for: ${numbers_massive[i]}`)
+    }
+    //     3. перебрати циклом while та вивести  числа тільки з непарним індексом
+    i = 0;
+    while(i<numbers_massive.length){
+        if (numbers_massive[i]%2!==0){
+            console.log(`числа з непарним індексом: ${numbers_massive[i]}`)
+        }
+        i++
+    }
+    // 4. перебрати циклом for та вивести  числа тільки з непарним індексом
+    for (i = 0; i < numbers_massive.length; i++) {
+        if (numbers_massive[i] % 2 !== 0){
+            console.log(numbers_massive[i])
+        }
+    }
+    // 5. перебрати циклом while та вивести  числа тільки парні  значення
+    i=0;
+    while(i<numbers_massive.length){
+        if (numbers_massive[i]%2===0){
+            console.log(`парні  значення: ${numbers_massive[i]}`)
+        }
+        i++
+    }
+    // 6. перебрати циклом for та вивести  числа тільки парні  значення
+    for (i = 0; i < numbers_massive.length; i++) {
+        if (numbers_massive[i]%2===0){
+            console.log(numbers_massive[i])
+        }
+    }
+    // 7. замінити кожне число кратне 3 на слово "okten"
+    for(i=0;i<numbers_massive.length;i++){
+        if (i%3 === 0){
+            console.log('okten')
+        }else{
+            console.log(`  ${numbers_massive[i]}`)
+        }
+    }
+    // 8. вивести масив в зворотньому порядку.
+    for ( i = numbers_massive.length - 1; i >= 0; i--) {
+        console.log(`Зворотнiй порядок: ${numbers_massive[i]}`)
+    }
+    // 9. всі попередні завдання (окрім 8), але в зворотньому циклі (с заду на перед)
+
+    //  1 перебрати його циклом while
+    numbers_massive = [2,17,13,6,22,31,45,66,100,-18];
+
+    i = numbers_massive.length - 1;
+    while(i>=0){
+        console.log(` зворотнiй порядок з while: ${numbers_massive[i]}`)
+        i--
+    }
+    //      2 перебрати його циклом for
+    for(i = numbers_massive.length - 1; i >= 0;i--){
+        console.log(`Зворотнiй порядок з for: ${numbers_massive[i]}`)
+    }
+    //    3 перебрати циклом while та вивести  числа тільки з непарним індексом
+    i = numbers_massive.length - 1;
+    while(i>=0){
+        if (numbers_massive[i]%2!==0){
+            console.log(`   зворотнiй порядок з числа з непарним індексом: ${numbers_massive[i]}`)
+        }
+        i--
+    }
+    //  4 перебрати циклом for та вивести  числа тільки з непарним індексом
+    for (i = numbers_massive.length - 1; i>=0; i--) {
+        if (numbers_massive[i] % 2 !== 0){
+            console.log(numbers_massive[i])
+        }
+    }
+    //  5 перебрати циклом while та вивести  числа тільки парні  значення
+    i = numbers_massive.length - 1;
+    while(i>=0){
+        if (numbers_massive[i]%2===0){
+            console.log(`парні  значення: ${numbers_massive[i]}`)
+        }
+        i--
+    }
+    //  6 перебрати циклом for та вивести  числа тільки парні  значення
+    for (i = numbers_massive.length - 1; i>=0; i--) {
+        if (numbers_massive[i]%2===0){
+            console.log(numbers_massive[i])
+        }
+    }
+    //  7 замінити кожне число кратне 3 на слово "okten"
+    for(i = numbers_massive.length - 1; i>=0; i--){
+        if (i%3 === 0){
+            console.log('okten')
+        }else{
+            console.log(`  ${numbers_massive[i]}`)
+        }
+    }
+</script>
+</body>
+</html>
