@@ -10,9 +10,12 @@
 <body>
 
 <script>
-    for (let i = 1000; i >= 0; i = i-7){
-        document.write(`<h1>${i} - 7 = ${i-7}</h1>`);
-    }
+    function dead (start, minus){
+for (let i = start; i>= 6; i = i - minus){
+    document.write(`<h1>${i} - ${minus} = ${i - minus}</h1>`);
+}
+document.write('<h1>Я умер прости(</h1>');
+    }dead(1000,7)
 </script>
 
 </body>
