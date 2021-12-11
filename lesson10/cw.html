@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #btn {
+        background-color: lightblue;
+        width: 80px;
+        height: 30px;
+        margin-top: 10px;
+        border: 1px solid #2ce7c2;
+        border-radius: 10px;
+
+    }
+</style>
+<body>
+<form name="f1">
+    <input type="text" name="i11">
+    <input type="text" name="i12">
+</form>
+<form name="f2">
+    <input type="text" name="i21">
+    <input type="text" name="i22">
+</form>
+
+<button id="btn">read this</button>
+<hr>
+
+<form name="f3Creator">
+    <input type="number" name="rows">
+    <input type="number" name="columns">
+    <input type="text" name="content">
+    <button id="btnT">read</button>
+</form>
+
+<hr>
+<input type="text" id="bad">
+<button id="btnBad">ok</button>
+</body>
+
+<script>
+
+    // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
+    //     Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
+    // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
+    document.getElementById('btn').onclick = function () {
+        let i11 = document.forms.f1.i11.value;
+        let i12 = document.forms.f1.i12.value;
+        let i21 = document.forms.f2.i21.value;
+        let i22 = document.forms.f2.i22.value;
+        console.log(i11, i12, i21, i22);
+    };
+
+    // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // (Додатковачастина для завдання)
+    let form = document.forms.f3Creator;
+    form.onsubmit = function (e) {
+         e.preventDefault();
+        let rows = form.rows.value;
+        let columns = form.columns.value;
+        let content = form.content.value;
+        console.log(rows, columns, content);
+
+        let table = document.createElement('table');
+
+        for (let i = 0; i < rows; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < columns; j++) {
+                let td = document.createElement('td')
+                td.innerText = content;
+                tr.appendChild(td)
+            }
+            table.appendChild(tr);
+        }
+        document.body.appendChild(table);
+    };
+
+    // - Сворити масив не цензцрних слів.
+    //     Сворити інпут текстового типу.
+    //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
+    // кинути алерт з попередженням.
+    //     Перевірку робити при натисканні на кнопку
+    let badWords = ['salo ne top','putin','moskali'];
+    document.getElementById('btnBad').onclick = function (){
+        let bad = document.getElementById('bad').value;
+        for (const badWord of badWords) {
+            if (badWord === bad){
+                alert('- 100 social credits')
+            }
+        }
+    }
+    // - Сворити масив не цензцрних слів.
+    //     Сворити інпут текстового типу.
+    //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
+    //     Кинути алерт з попередженням у випадку якщо містить.
+    //     Перевірку робити при натисканні на кнопку
+    let vereBadWords = ['putin top','jan ghen kyn ne top','india'];
+    document.getElementById('btnBad').addEventListener('click',function (){
+        let sentence = document.getElementById('bad').value;
+        for (badWord of vereBadWords){
+            if (sentence.includes(badWord)){
+                alert('-10000 social credits!!!!')
+            }
+        }
+    })
+
+</script>
+
+</html>
