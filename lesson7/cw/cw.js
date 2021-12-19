@@ -47,7 +47,7 @@ class ClassCar {
         this.engV = engV;
     }
         drive () {
-            console.log(`їдемо зі швидкістю ${maxSpeed} на годину`);
+            console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
         };
         info () {
             console.log(`model - ${this.model}; producer - ${this.producer}; year - ${this.year}; 
