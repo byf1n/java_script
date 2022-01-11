@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="post-details.html"></script>
+
+
+</head>
+<body>
+<div class="qwqw">
+    <div class="main">
+        <div class="body"></div>
+        <div class="id"></div>
+        <div class="title"></div>
+        <div class="userId"></div>
+    </div>
+    <div class="sec">
+        <h3>Comments:</h3>
+    </div>
+</div>
+<script>
+    let qqq = localStorage.getItem('idPost');
+    idPost = JSON.parse(qqq);
+
+    let iid = localStorage.getItem('idUser');
+    id = JSON.parse(iid);
+
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
+        .then(value => value.json())
+        .then(value => {
+                let post = value[`${idPost}`];
+                console.log(post);
+                let div = document.getElementsByClassName('main')[0];
+                let body = document.getElementsByClassName('body')[0];
+                let id = document.getElementsByClassName('id')[0];
+                let title = document.getElementsByClassName('title')[0];
+                let userId = document.getElementsByClassName('userId')[0];
+
+                let POST_ID = post.id
+                localStorage.setItem('POST_ID',JSON.stringify(POST_ID));
+                body.innerHTML = `<b>body:</b> ${post.body}`;
+                id.innerHTML = ` <b>id:</b> ${post.id}`;
+                title.innerHTML = ` <b>title:</b> ${post.title}`;
+                userId.innerHTML = ` <b>userId:</b> ${post.userId}`;
+
+                div.append(body,id,title,userId)
+                document.body.append(div);
+
+        })
+    let qwa = localStorage.getItem('POST_ID');
+    let POST_ID = JSON.parse(qwa);
+    fetch(`https://jsonplaceholder.typicode.com/posts/${POST_ID}/comments`)
+        .then(value => value.json())
+        .then(value => {
+            console.log(value);
+           let comh3 = document.getElementsByClassName('comh3')[0];
+             for (const com of value) {
+                 let div = document.getElementsByClassName('sec')[0];
+
+                let body1 = document.createElement('div');
+                let email1 = document.createElement('div');
+                let id1 = document.createElement('div');
+                let name1 = document.createElement('div');
+                let postId1 = document.createElement('div');
+
+                 body1.innerHTML = `<b>body: </b> ${com.body}`;
+                 email1.innerHTML = `<b>email: </b> ${com.email}`;
+                 id1.innerHTML = `<b>id: </b> ${com.id}`;
+                name1.innerHTML = `<b>name: </b> ${com.name}`;
+                postId1.innerHTML = `<b>postId: </b> ${com.postId}`;
+
+
+                div.append(body1,email1,id1,name1,postId1);
+
+
+
+             }
+
+        })
+</script>
+</div>
+
+</body>
+</html>
+

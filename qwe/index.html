@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>qwe</title>
+    <style>
+        .firstDiv{
+            background-color: red;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<div class="firstDiv"></div>
+<script>
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(value => {
+            console.log(value);
+            return  value.json()
+        })
+        .then(value => {
+            console.log(value);
+            let firstDiv = document.getElementsByClassName('firstDiv  ');
+            for(user of value){
+                let div = document.createElement('div');
+                let divv = document.createElement('div');
+                div.innerText = ` id: ${user.id} name: ${user.name} `;
+                document.body.append(div);
+                let btn = document.createElement('button');
+                btn.classList.add(`${user.id}`)
+                div.append(divv)
+                divv.appendChild(btn)
+                btn.innerText = 'go to';
+
+                btn.onclick = function (){
+                    let numUser = btn.classList[0];
+                    console.log(`go to user: ${numUser}`);
+                     location.href = "user-details.html";
+                    console.log(numUser);
+                    localStorage.setItem('idUser', JSON.stringify(numUser));
+
+
+
+                }
+
+            }
+
+        })
+
+
+</script>
+</body>
+</html>

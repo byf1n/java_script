@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btn1{
+            background-color: #14f1f1;
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 1%;
+            border-radius: 10px;
+            border: 1px solid black;
+            height: 40px;
+            color: #000000;
+        }
+        .user{
+            margin-left: 5%;
+        }
+    </style>
+</head>
+<body>
+<div class="user"></div>
+<div class="posts"></div>
+<script>
+     // let id = 3 /// user_id
+     let qwe = localStorage.getItem('idUser');
+     let id = JSON.parse(qwe);
+     console.log(id);
+    fetch(` https://jsonplaceholder.typicode.com/users/${id}`)
+        .then(value => value.text())
+        .then(value => {
+            let user = document.getElementsByClassName('user')[0];
+            let info = JSON.parse(value);
+            console.log(info);
+            let id = document.createElement('strong');
+            id.innerText = `${info.id}`;
+            let div1 = document.createElement('div');
+            div1.innerHTML = ` <b>Name:</b> ${info.name}, username: ${info.username}, email: ${info.email},
+            website: ${info.website}, phone: ${info.phone}`;
+            let div2 = document.createElement('div');
+            div2.innerHTML = `<div>/// <b>Address</b> /// city: ${info.address.city}, street: ${info.address.street}, suite:
+            ${info.address.suite}, zipcode: ${info.address.zipcode}, geo: lat: ${info.address.geo.lat}, lng:
+            ${info.address.geo.lng}`;
+            let div3 = document.createElement('div');
+            div3.innerHTML = `/// <b>Company</b> /// name: ${info.company.name}, bs: ${info.company.bs}, catchPhrase: ${info.company.catchPhrase}`
+
+
+            user.append(id,div1,div2,div3);
+        })
+
+
+
+
+
+    let btn = document.createElement('button');
+     document.body.append(btn);
+     btn.innerText = 'post of current user';
+     btn.classList.add('btn1')
+     btn.onclick = function (){
+         fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
+             .then(value => value.text())
+            .then(value => {
+                let posts = JSON.parse(value);
+                console.log(posts);
+                for (let i = 0; i<posts.length ; i++) {
+                    document.write(`<div class="postDiv">${i} ${posts[i].title}</div>`);
+                    let divBtn = document.createElement('button');
+                    divBtn.innerText = 'lets go!?'
+                    document.body.append(divBtn);
+                        divBtn.onclick = function (){
+                            console.log(i);
+                            localStorage.setItem('idPost', JSON.stringify(i));
+
+                             location.href = "post-details.html";
+                        }
+                }
+             })
+     };
+</script>
+</body>
+</html>
